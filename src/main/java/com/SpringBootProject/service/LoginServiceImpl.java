@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.SpringBootProject.dao.UserRepository;
 import com.SpringBootProject.entities.User;
-import com.SpringBootProject.exception.UserNotFoundException;
+import com.SpringBootProject.exception.NotFoundException;
 import com.SpringBootProject.mapper.LoginMapper;
 import com.SpringBootProject.responseDto.LoginResponseDto;
 import com.SpringBootProject.serviceInterface.LoginService;
@@ -30,7 +30,7 @@ public class LoginServiceImpl implements LoginService{
 			response = mapper.mapToLoginResponseDto(user);
 			return new ResponseEntity<LoginResponseDto>(response,HttpStatus.OK);
 		}else {
-			throw new UserNotFoundException("User not found.");
+			throw new NotFoundException("User not found.");
 		}
 	}
 }
