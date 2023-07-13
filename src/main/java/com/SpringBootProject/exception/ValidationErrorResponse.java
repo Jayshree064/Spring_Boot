@@ -1,5 +1,7 @@
 package com.SpringBootProject.exception;
 
+import java.util.Set;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,15 +9,17 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ErrorResponse {
+public class ValidationErrorResponse {
 
 	private int statusCode;
 	
-	private String message;
-	
-	public ErrorResponse(String message) {
+	private Set<String> message;
+
+	public ValidationErrorResponse(Set<String> message) {
 		super();
 		this.message = message;
 	}
+
+	
 	
 }
