@@ -17,7 +17,7 @@ public class BlockUserServiceImpl implements BlockUserService{
 
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	@Autowired
 	private BlockUserMapper mapper;
 	

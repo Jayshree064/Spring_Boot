@@ -27,13 +27,12 @@ public class LoginController {
 	
 	@PostMapping("/login")
 	public ResponseEntity<LoginResponseDto> login(@Valid @RequestBody LoginDto loginData,BindingResult bindingResult) throws NoSuchAlgorithmException{
-	
+
 		Validations.validate(bindingResult);
-		
+	
 		return new ResponseEntity<LoginResponseDto>(this.loginService.loginUser
 				(loginData.getEmail(),Encryption.encryptPassword(loginData.getPassword()), null),
 				HttpStatus.OK);
-
 	}
 	
 	

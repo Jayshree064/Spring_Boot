@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 public class LoginDto {
-
+	
 	@NotBlank(message = "Email is not empty Please enter email")
 	@Email
 	private String email;

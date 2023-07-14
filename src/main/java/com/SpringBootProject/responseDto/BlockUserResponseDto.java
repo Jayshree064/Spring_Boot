@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BlockUserResponseDto {
-	
+
 	private long blockUserId;
 	private User blockerUserId;
 	private User blockedUserId;
