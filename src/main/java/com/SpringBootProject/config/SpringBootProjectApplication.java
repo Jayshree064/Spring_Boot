@@ -18,8 +18,8 @@ import com.SpringBootProject.entities.User;
 @EnableJpaRepositories(basePackages = "com.SpringBootProject.dao")
 public class SpringBootProjectApplication implements CommandLineRunner{
 
-	@Autowired
-	private UserRepository userRepository;
+//	@Autowired
+//	private UserRepository userRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootProjectApplication.class, args);

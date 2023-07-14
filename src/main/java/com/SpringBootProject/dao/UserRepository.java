@@ -2,6 +2,7 @@ package com.SpringBootProject.dao;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,7 +15,7 @@ import com.SpringBootProject.entities.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
 	
-	public User findByEmailAndPasswordAndDeletedAt(String email,String password,Date deletedAt);
+	public Optional<User> findByEmailAndPasswordAndDeletedAt(String email,String password,Date deletedAt);
 	
 	@Query("from BlockUser where blockerUserId.email =:mail and deletedAt is null")
 	public List<BlockUser> findAllBlockUsers(@Param("mail") String mail);

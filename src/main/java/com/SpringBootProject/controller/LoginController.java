@@ -3,6 +3,7 @@ package com.SpringBootProject.controller;
 import java.security.NoSuchAlgorithmException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,7 +30,9 @@ public class LoginController {
 	
 		Validations.validate(bindingResult);
 		
-		return this.loginService.loginUser(loginData.getEmail(),Encryption.encryptPassword(loginData.getPassword()), null);
+		return new ResponseEntity<LoginResponseDto>(this.loginService.loginUser
+				(loginData.getEmail(),Encryption.encryptPassword(loginData.getPassword()), null),
+				HttpStatus.OK);
 
 	}
 	

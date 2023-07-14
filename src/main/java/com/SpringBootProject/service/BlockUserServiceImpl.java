@@ -3,8 +3,6 @@ package com.SpringBootProject.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.SpringBootProject.dao.UserRepository;
@@ -23,12 +21,12 @@ public class BlockUserServiceImpl implements BlockUserService{
 	@Autowired
 	private BlockUserMapper mapper;
 	
-	public ResponseEntity<List<BlockUserResponseDto>> blockUserData(String email){
+	public List<BlockUserResponseDto> blockUserData(String email){
 		List<BlockUserResponseDto> response = null;
 		List<BlockUser> userList = this.userRepository.findAllBlockUsers(email);
 		if(userList.size() > 0) {
 			response = mapper.mapToResponse(userList);
-			return new ResponseEntity<List<BlockUserResponseDto>>(response,HttpStatus.OK);
+			return response;
 		}else {
 			throw new NotFoundException("User block list not found");
 		}

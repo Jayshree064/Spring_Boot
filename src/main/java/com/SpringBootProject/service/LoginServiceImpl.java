@@ -1,10 +1,9 @@
 package com.SpringBootProject.service;
 
 import java.sql.Date;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.SpringBootProject.dao.UserRepository;
@@ -23,14 +22,9 @@ public class LoginServiceImpl implements LoginService{
 	@Autowired
 	LoginMapper mapper;
 	
-	public ResponseEntity<LoginResponseDto> loginUser(String email,String password,Date deletedAt) {
-		LoginResponseDto response = null;
-		User user = this.userRepository.findByEmailAndPasswordAndDeletedAt(email, password,deletedAt);
-		if(user != null) {
-			response = mapper.mapToLoginResponseDto(user);
-			return new ResponseEntity<LoginResponseDto>(response,HttpStatus.OK);
-		}else {
-			throw new NotFoundException("User not found.");
-		}
+	public LoginResponseDto loginUser(String email,String password,Date deletedAt) {
+		Optional<User> user = this.userRepository.findByEmailAndPasswordAndDeletedAt(email, password,deletedAt);
+		User userData = user.orElseThrow(() -> new NotFoundException("User not found"));
+		return mapper.mapToLoginResponseDto(userData);
 	}
 }

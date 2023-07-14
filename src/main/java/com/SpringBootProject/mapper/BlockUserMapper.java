@@ -11,4 +11,5 @@ import com.SpringBootProject.responseDto.BlockUserResponseDto;
 public interface BlockUserMapper {
 
 	List<BlockUserResponseDto> mapToResponse(List<BlockUser> blockUser);
+	
 }
