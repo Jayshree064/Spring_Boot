@@ -20,6 +20,5 @@ public class ValidationErrorResponse {
 		this.message = message;
 	}
 
-	
-	
+		
 }

@@ -39,7 +39,7 @@ public class LoginUserServiceTest {
 	@Test
 	public void userLoginTest() throws NoSuchAlgorithmException {
 		
-		String email = "test@gmail.com";
+		String email = "jhondoe@gmail.com";
 		String password = Encryption.encryptPassword("123456");
 		
 		Optional<User> user = Optional.of(new User());
@@ -55,7 +55,7 @@ public class LoginUserServiceTest {
 		LoginResponseDto expectedResult = new LoginResponseDto();
 		expectedResult.setEmail(email);
 		expectedResult.setPassword(password);
-		
+	
 		when(mapper.mapToLoginResponseDto(u)).thenReturn(expectedResult);
 		
 		LoginResponseDto actualResult = loginService.loginUser(email,password, null);

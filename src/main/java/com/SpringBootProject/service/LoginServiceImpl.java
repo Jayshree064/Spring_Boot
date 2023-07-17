@@ -21,7 +21,7 @@ public class LoginServiceImpl implements LoginService{
 	
 	@Autowired
 	LoginMapper mapper;
-	
+
 	public LoginResponseDto loginUser(String email,String password,Date deletedAt) {
 		Optional<User> user = this.userRepository.findByEmailAndPasswordAndDeletedAt(email, password,deletedAt);
 		User userData = user.orElseThrow(() -> new NotFoundException("User not found"));

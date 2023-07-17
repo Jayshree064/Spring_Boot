@@ -25,5 +25,4 @@ public class GlobalExceptionHandler {
 		Set<String> errors = exception.getErrors();
 		return new ValidationErrorResponse(HttpStatus.BAD_REQUEST.value(),errors);
 	}
-
 }

@@ -53,7 +53,7 @@ public class BlockUserControllerTest {
 	
 		List<BlockUserResponseDto> blockUserList = new ArrayList<>();
 		blockUserList.add(response);
-	
+
 		when(blockUserService.blockUserData("test@gmail.com")).thenReturn(blockUserList);
 		
 		ResponseEntity<List<BlockUserResponseDto>> expectedResult = new ResponseEntity<List<BlockUserResponseDto>>(blockUserList,HttpStatus.OK);

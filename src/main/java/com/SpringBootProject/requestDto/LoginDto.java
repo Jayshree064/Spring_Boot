@@ -20,5 +20,5 @@ public class LoginDto {
 	@Size(min=1,message = "Password is not empty Please enter password")
 	private String password;
 	
-	
+
 }

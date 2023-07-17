@@ -43,7 +43,7 @@ public class LoginControllerTest {
 		LoginResponseDto loginResponse = new LoginResponseDto();
 		loginResponse.setEmail("test@gmail.com");
 		loginResponse.setPassword("8d969eef6ecad3c29a3a629280e686cfc3f5d5a86aff3ca122c923adc6c92");
-		
+	
 		when(loginService.loginUser(loginDto.getEmail(), loginDto.getPassword(), null)).thenReturn(loginResponse);
 		
 		ResponseEntity<LoginResponseDto> expectedResult = new ResponseEntity<LoginResponseDto>(loginResponse, HttpStatus.OK);

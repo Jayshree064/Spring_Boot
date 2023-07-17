@@ -28,7 +28,7 @@ public class ValidationException extends RuntimeException{
 		super("Validations failed");
 		this.errors = bindingResult.getFieldErrors().stream().map(FieldError::getDefaultMessage).collect(Collectors.toSet());
 	}
-
+	
 	public ValidationException(String message) {
 		super(message);
 	}

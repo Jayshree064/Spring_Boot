@@ -22,7 +22,7 @@ import lombok.ToString;
 @Entity
 @Table(name = "block_user")
 public class BlockUser {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "block_user_id",nullable = false)
@@ -31,7 +31,7 @@ public class BlockUser {
 	@ManyToOne
 	@JoinColumn(name = "blocker_user_id")
 	private User blockerUserId;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "blocked_user_id")
 	private User blockedUserId;
