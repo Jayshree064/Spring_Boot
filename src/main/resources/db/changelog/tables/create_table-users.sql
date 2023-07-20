@@ -10,7 +10,7 @@ CREATE TABLE users
     email VARCHAR(255),
     password VARCHAR(255),
     address VARCHAR(255),
-    phone_number INT,
+    phone_number BIGINT,
     birth_date date,
     created_at date,
     updated_at date,

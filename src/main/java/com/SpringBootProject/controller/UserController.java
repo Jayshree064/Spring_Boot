@@ -33,7 +33,7 @@ public class UserController {
 		return new ResponseEntity<List<LoginResponseDto>>(this.userService.getAllUsers(),HttpStatus.OK);
 	}
 	
-	@PostMapping("/users/{id}")
+	@GetMapping("/users/{id}")
 	public ResponseEntity<LoginResponseDto> getUserById(@PathVariable("id") long userId){
 		return new ResponseEntity<LoginResponseDto>(this.userService.getUserById(userId),HttpStatus.OK);
 	}
