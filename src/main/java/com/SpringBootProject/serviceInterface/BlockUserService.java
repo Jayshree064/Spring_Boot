@@ -8,4 +8,9 @@ import com.SpringBootProject.responseDto.BlockUserResponseDto;
 public interface BlockUserService {
 	
 	List<BlockUserResponseDto> blockUserData(String email);
+	
+	BlockUserResponseDto addBlockUser(String blockerEmail,String blockedEmail);
+	
+	BlockUserResponseDto removeBlockUser(long id);
+	
 }

@@ -1,5 +1,6 @@
 --liquibase formatted sql
 --changeset Jayshree:create-table-blockUser
+--precondition-sql-check expectedResult:0 SELECT count(*)FROM information_schema.tables where table_name = 'block_user'; 
 --preconditions onFail:HALT onError:HALT
 CREATE TABLE block_user
 (

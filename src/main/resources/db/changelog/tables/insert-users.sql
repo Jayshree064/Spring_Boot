@@ -1,5 +1,6 @@
 --liquibase formatted sql
 --changeset Jayshree:insert-into-users
+--preconditions-sql-check expectedResult:0 SELECT(*) FROM users;
 --preconditions onFail:HALT onError:HALT
 INSERT INTO users 
 (first_name,last_name,email,password,address,phone_number,birth_date,created_at)

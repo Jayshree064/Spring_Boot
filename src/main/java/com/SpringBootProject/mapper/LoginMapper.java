@@ -9,4 +9,5 @@ import com.SpringBootProject.responseDto.LoginResponseDto;
 public interface LoginMapper {
 	
 	LoginResponseDto mapToLoginResponseDto(User user);
+	
 }

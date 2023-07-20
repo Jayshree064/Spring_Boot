@@ -6,10 +6,8 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.SpringBootProject.entities.BlockUser;
 import com.SpringBootProject.entities.User;
 
 @Repository
@@ -17,7 +15,11 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	
 	public Optional<User> findByEmailAndPasswordAndDeletedAt(String email,String password,Date deletedAt);
 	
-	@Query("from BlockUser where blockerUserId.email =:mail and deletedAt is null")
-	public List<BlockUser> findAllBlockUsers(@Param("mail") String mail);
+	public Optional<User> findByEmailAndDeletedAt(String email,Date deletedAt);
+	
+	@Query("from User where deletedAt is NULL")
+	public List<User> findAllAndDeletedAt();
+	
+	public Optional<User> findByUserIdAndDeletedAt(long userId,Date deletedAt);
 	
 }

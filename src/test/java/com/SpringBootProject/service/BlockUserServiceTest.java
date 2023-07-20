@@ -16,6 +16,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
+import com.SpringBootProject.dao.BlockUserRepository;
 import com.SpringBootProject.dao.UserRepository;
 import com.SpringBootProject.entities.BlockUser;
 import com.SpringBootProject.entities.User;
@@ -28,7 +29,7 @@ import com.SpringBootProject.responseDto.BlockUserResponseDto;
 public class BlockUserServiceTest {
 
 	@Mock
-	private UserRepository userRepo;
+	private BlockUserRepository blockUserRepo;
 	
 	@InjectMocks
 	private BlockUserServiceImpl blockUserService;
@@ -54,7 +55,7 @@ public class BlockUserServiceTest {
 		List<BlockUser> userList = new ArrayList<>();
 		userList.add(blockUser);
 		
-		when(userRepo.findAllBlockUsers("test@gmail.com")).thenReturn(userList);
+		when(blockUserRepo.findAllBlockUsers("test@gmail.com")).thenReturn(userList);
 		
 		BlockUserResponseDto blockUserResponse = new BlockUserResponseDto();
 		blockUserResponse.setBlockedUserId(user1);
@@ -86,7 +87,7 @@ public class BlockUserServiceTest {
 		List<BlockUser> userList = new ArrayList<>();
 		userList.add(blockUser);
 		
-		when(userRepo.findAllBlockUsers("test@gmail.com")).thenReturn(userList);
+		when(blockUserRepo.findAllBlockUsers("test@gmail.com")).thenReturn(userList);
 		
 		Exception exception = assertThrows(NotFoundException.class, () -> {blockUserService.blockUserData("admin@gmail.com");});
 	

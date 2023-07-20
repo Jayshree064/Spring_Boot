@@ -13,5 +13,6 @@
 	<include file="tables/create_table-blockUser.sql" relativeToChangelogFile="true"/>
 	<include file="tables/insert-users.sql" relativeToChangelogFile="true"/>
 	<include file="tables/insert-blockUser.sql" relativeToChangelogFile="true"/>
+	<include file="tables/alter_table.sql" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
