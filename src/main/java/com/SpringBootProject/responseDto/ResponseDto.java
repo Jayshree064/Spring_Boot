@@ -1,24 +1,14 @@
 package com.SpringBootProject.responseDto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class ResponseDto {
 
 	private String message;
-
-	public String getMessage() {
-		return message;
-	}
 	
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public ResponseDto(String message) {
-		super();
-		this.message = message;
-	}
-
-	@Override
-	public String toString() {
-		return "ResponseDto [message=" + message + "]";
-	}
 }

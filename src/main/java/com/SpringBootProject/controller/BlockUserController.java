@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,19 +26,20 @@ import com.SpringBootProject.serviceInterface.BlockUserService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 
+@CrossOrigin
 @RestController
 public class BlockUserController {
 
 	@Autowired
 	private BlockUserService blockUserService;
 	
-	@GetMapping("/block-users")
+	@PostMapping("/block-users")
 	public ResponseEntity<List<BlockUserResponseDto>> getBlockedUser(@Valid @RequestBody BlockUserDto user,BindingResult bindingResult){
 		Validations.validate(bindingResult);
 		return new ResponseEntity<List<BlockUserResponseDto>>(this.blockUserService.blockUserData(user.getEmail()),HttpStatus.OK);
 	}
 	
-	@PostMapping("/block-users")
+	@PostMapping("/block-users/add")
 	public ResponseEntity<BlockUserResponseDto> addBlockUser(@Valid @RequestBody AddBlockUserDto user,BindingResult bindingResult) {
 		Validations.validate(bindingResult);
 		if(user.getBlockedUserEmail().equals(user.getBlockerUserEmail())) {
